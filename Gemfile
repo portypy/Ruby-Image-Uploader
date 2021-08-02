@@ -67,3 +67,8 @@ gem 'carrierwave', '~> 2.0'
 #Devise
 gem 'devise'
 
+#Pundit https://github.com/varvet/pundit
+gem 'pundit'
+
+#https://github.com/RolifyCommunity/rolify
+gem "rolify"

@@ -1,15 +1,5 @@
-<p class="navbar-text float-right">
-  <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
-</p>
 
-
+<%= link_to 'Admin', users_index_path %>
 <h1>Posts</h1>
 
 <table>
@@ -27,8 +17,10 @@
         <td><%= post.title %></td>
         <td><%= image_tag post.image_url :thumb if post.image? %> </td>
         <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%# if policy(@post).update? %>
+          <td><%= link_to 'Edit', edit_post_path(post) if policy(post).edit? %></td>
+        <%# end %>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if policy(post).destroy?%></td>
       </tr>
     <% end %>
   </tbody>

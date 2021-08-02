@@ -21,8 +21,10 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
+    <%= render partial: "shared/login_form" %>
+
     <%= yield %>
   </body>
 
-
+  <%= console %>
 </html>

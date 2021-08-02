@@ -1,0 +1,24 @@
+<!--<h2> User:</h2>-->
+
+<% @user.roles.each do |role| %>
+  <%= role.name %>
+<% end %> <br/>
+
+<%# @roles_array.each do |user_role| %>
+<!--  <%#= link_to user_role, @user.assign_user_role(@user.id, user_role.to_s) %> <br/>-->
+<%# end %>
+
+<!--<%#= link_to 'Make Mod', User.assign_user_role(@user.id, 'mod') %><br/>-->
+
+<%= link_to 'Make Admin', @user.assign_user_role(@user.id, 'admin') %><br/>
+
+
+<!--<h2> <%#= @user.email %></h2>-->
+<!--<h3> Created at:</h3>-->
+<!--<h3> <%#= @user.created_at %></h3>-->
+<!--<h3> Last update</h3>-->
+<!--<h3> <%#= @user.updated_at %></h3>-->
+
+
+
+<%= link_to 'Back', users_index_path %>
