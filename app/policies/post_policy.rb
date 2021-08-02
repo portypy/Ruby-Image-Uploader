@@ -16,6 +16,18 @@ class PostPolicy < ApplicationPolicy
     end
   end
 
+  def update?
+    if user
+      user.roles.each do |role|
+        if role.name == "admin"
+          return true
+        else
+          return false
+        end
+      end
+    end
+  end
+
   def destroy?
     if user
       user.roles.each do |role|

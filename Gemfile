@@ -72,3 +72,6 @@ gem 'pundit'
 
 #https://github.com/RolifyCommunity/rolify
 gem "rolify"
+
+#https://github.com/twbs/bootstrap-sass
+gem 'bootstrap-sass', '~> 3.4.1'

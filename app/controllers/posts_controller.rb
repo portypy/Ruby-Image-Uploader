@@ -20,7 +20,6 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     authorize @post
-
   end
 
   # POST /posts or /posts.json
