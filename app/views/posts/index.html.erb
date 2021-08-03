@@ -1,8 +1,14 @@
 
-<%= link_to 'Admin', users_index_path %>
+<div>
+<%=  link_to 'Admin View', { controller: "users", action: :index} ,class: "btn btn-primary", id: "admin-view"  if policy(@posts).show? %>
+</div>
+<%#= link_to '#', :class => '' do %>
+<!--   jirojgioer-->
+<%# end %>
+
 <h1>Posts</h1>
 
-<table>
+<table class="table table-dark">
   <thead>
     <tr>
       <th>Title</th>
@@ -13,13 +19,11 @@
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
+      <tr id="table">
         <td><%= post.title %></td>
         <td><%= image_tag post.image_url :thumb if post.image? %> </td>
         <td><%= link_to 'Show', post %></td>
-        <%# if policy(@post).update? %>
           <td><%= link_to 'Edit', edit_post_path(post) if policy(post).edit? %></td>
-        <%# end %>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if policy(post).destroy?%></td>
       </tr>
     <% end %>
@@ -28,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_post_path,class: "btn btn-primary", id: "admin-view" %>

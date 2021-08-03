@@ -11,7 +11,15 @@ class ApplicationPolicy
   end
 
   def show?
-    false
+    if user
+      user.roles.each do |role|
+        if role.name == "admin"
+          return true
+        else
+          return false
+        end
+      end
+    end
   end
 
   def create?

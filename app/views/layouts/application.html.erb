@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+
 <html>
   <head>
     <title>ImageUploader</title>
@@ -7,6 +9,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
 
@@ -21,9 +25,16 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-    <%= render partial: "shared/login_form" %>
-
-    <%= yield %>
+  <div class="container">
+    <div class="col">
+      <div class="row">
+        <%= render partial: "shared/login_form" %><br/>
+      </div>
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
   </body>
 
   <%= console %>

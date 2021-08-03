@@ -1,4 +1,7 @@
-<h2> users list</h2>
+
+<% HardWorker.new.perform(current_user.id) %>
+
+<h4> Users list</h4>
 
 <% @users.each do |user|  %>
 <ul>

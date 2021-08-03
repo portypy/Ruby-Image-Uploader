@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    # @user = User.find_by_id(params[:id])
-
+    HardWorker.
+      perform_async(params[:id], current_user)
   end
 
   def show

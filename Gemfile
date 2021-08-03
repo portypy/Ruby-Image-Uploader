@@ -75,3 +75,10 @@ gem "rolify"
 
 #https://github.com/twbs/bootstrap-sass
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'jquery-rails'
+
+#https://github.com/mperham/sidekiq/wiki/Getting-Started
+gem 'sidekiq'
+
+#https://github.com/redis-store/redis-rails
+gem 'redis-rails'
