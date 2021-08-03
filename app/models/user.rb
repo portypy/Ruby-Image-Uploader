@@ -1,9 +1,17 @@
 class User < ApplicationRecord
 
+  rolify
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   has_one :role
 
-  # Callbacks
-  # after_create :assign_user_role
+  scope :admins, -> { where(role: 'admin') }
+
+
+  Callbacks
+  after_create :assign_default_role
 
   def assign_user_role(user_id, role)
     user = User.find(user_id)
@@ -12,24 +20,8 @@ class User < ApplicationRecord
     puts 'user'
   end
 
-  # def assign_admin_role(user_id)
-  #   # puts role_name
-  #   user = User.find(user_id)
-  #   user.roles.delete_all
-  #   user.add_role(:role)
-  #   puts 'admin'
-  # end
-  #
-  # def assign_mod_role(user_id)
-  #   user = User.find(user_id)
-  #   user.roles.delete_all
-  #   user.add_role(:mod)
-  #   puts 'mod'
-  # end
+  def assign_default_role
+    self.add_role(:user)
+  end
 
-  rolify
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
 end

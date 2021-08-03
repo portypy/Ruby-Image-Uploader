@@ -1,7 +1,9 @@
 class HardWorker
   include Sidekiq::Worker
 
-  def perform(user_id)
-    puts User.find(user_id).email + " just viewed admin panel"
+  def perform(current_user_id)
+    User.admins.each do |user|
+      UserMailer.admin_panel_email(user.id, current_user_id).deliver_now
+    end
   end
 end
