@@ -7,10 +7,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :role
 
-  scope :admins, -> { where(role: 'admin') }
+  scope :admins, -> { joins(:users_roles).where('role_id = ?', '5') }
 
 
-  Callbacks
+  #Callbacks
   after_create :assign_default_role
 
   def assign_user_role(user_id, role)
