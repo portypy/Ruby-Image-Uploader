@@ -10,4 +10,11 @@ class UsersController < ApplicationController
     @roles_array = %w[ mod, user, admin]
   end
 
+  def assign_user_role
+    @user = User.find(params[:id])
+    @user.roles.delete_all if @user.roles
+    @user.add_role(params[:role])
+    redirect_to @user, notice: "#{@user.email} was given the role of #{@user.roles.first.name if @user.roles.any?}"
+  end
+
 end

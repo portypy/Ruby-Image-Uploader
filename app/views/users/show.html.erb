@@ -7,7 +7,16 @@
 <!--  <%#= link_to user_role, @user.assign_user_role(@user.id, user_role.to_s) %> <br/>-->
 <%# end %>
 
-<%= link_to 'Make Mod', @user.assign_user_role('mod') %><br/>
+<%= link_to assign_user_role_path(@user.id, role: 'mod'), method: :post, :class => 'btn btn-primary btn-xs mb-4' do %>
+  Make Mod
+<% end %>
+
+<%= link_to assign_user_role_path(@user.id, role: 'admin'), method: :post, :class => 'btn btn-primary btn-xs mb-4' do %>
+  Make Admin
+<% end %>
+
+<br>
+
 
 <!--<%#= link_to 'Make Admin', :controller => :users, :action => (puts "aaaaaahhhh"), :method => :post %><br/>-->
 

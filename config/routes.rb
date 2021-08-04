@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get 'users/index'
   resources :users
 
-  # get "make_admin", to: "users#make_admin", as: 'make_admin'
+  post 'users/:id/assign_user_role', to: 'users#assign_user_role', as: 'assign_user_role'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root to: "main#index"
 end
