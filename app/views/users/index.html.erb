@@ -9,10 +9,9 @@
     <%= link_to 'Show', user %>
     <% user.roles.each do |role| %>
       <%= role.name %>
-    <% end %>
+  <% end %>
   </li>
 </ul>
-
 <% end %>
 
 <%= link_to 'Back', posts_path %>

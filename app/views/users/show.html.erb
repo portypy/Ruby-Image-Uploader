@@ -7,9 +7,9 @@
 <!--  <%#= link_to user_role, @user.assign_user_role(@user.id, user_role.to_s) %> <br/>-->
 <%# end %>
 
-<!--<%#= link_to 'Make Mod', User.assign_user_role(@user.id, 'mod') %><br/>-->
+<%= link_to 'Make Mod', @user.assign_user_role('mod') %><br/>
 
-<%= link_to 'Make Admin', @user.assign_user_role(@user.id, 'admin') %><br/>
+<!--<%#= link_to 'Make Admin', :controller => :users, :action => (puts "aaaaaahhhh"), :method => :post %><br/>-->
 
 
 <!--<h2> <%#= @user.email %></h2>-->

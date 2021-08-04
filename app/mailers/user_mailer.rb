@@ -5,7 +5,6 @@ class UserMailer < ApplicationMailer
 
     @user = User.find(user_id)
     @current_user = User.find(current_user_id)
-    # @admins = User.admins
     mail(to: @user.email, subject: 'Someone viewed admin panel')
   end
 end
