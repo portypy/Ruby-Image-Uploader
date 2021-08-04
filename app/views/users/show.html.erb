@@ -1,32 +1,18 @@
-<!--<h2> User:</h2>-->
+<h3> Account email: <%= @user.email %></h3>
+
 <% @user.roles.each do |role| %>
-  <%= role.name %>
+ Role: <%= role.name %>
 <% end %> <br/>
 
-<%# @roles_array.each do |user_role| %>
-<!--  <%#= link_to user_role, @user.assign_user_role(@user.id, user_role.to_s) %> <br/>-->
-<%# end %>
-
-<%= link_to assign_user_role_path(@user.id, role: 'mod'), method: :post, :class => 'btn btn-primary btn-xs mb-4' do %>
-  Make Mod
+<% @roles_array.each do |user_role| %>
+  <%= link_to assign_user_role_path(role: user_role), method: :post, :class => 'btn btn-primary btn-xs mb-4' do %>
+    Make <%= user_role %>
+  <% end %>
 <% end %>
 
-<%= link_to assign_user_role_path(@user.id, role: 'admin'), method: :post, :class => 'btn btn-primary btn-xs mb-4' do %>
-  Make Admin
-<% end %>
-
-<br>
-
-
-<!--<%#= link_to 'Make Admin', :controller => :users, :action => (puts "aaaaaahhhh"), :method => :post %><br/>-->
-
-
-<!--<h2> <%#= @user.email %></h2>-->
-<!--<h3> Created at:</h3>-->
-<!--<h3> <%#= @user.created_at %></h3>-->
-<!--<h3> Last update</h3>-->
-<!--<h3> <%#= @user.updated_at %></h3>-->
-
-
+<h4> Created at:</h4>
+<h5> <%= @user.created_at %></h5>
+<h4> Last update</h4>
+<h5> <%= @user.updated_at %></h5>
 
 <%= link_to 'Back', users_index_path %>

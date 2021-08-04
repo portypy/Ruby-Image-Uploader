@@ -7,9 +7,6 @@
   <li>
     <%= user.email %>
     <%= link_to 'Show', user %>
-    <% if user.is_admin?  %>
-       is admin!!!!
-    <% end %>
     <% user.roles.each do |role| %>
       <%= role.name %>
   <% end %>

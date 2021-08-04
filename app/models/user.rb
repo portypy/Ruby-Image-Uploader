@@ -12,14 +12,6 @@ class User < ApplicationRecord
   #Callbacks
   after_create :assign_default_role
 
-
-  def assign_user_role(role)
-    self.roles.delete_all if self.roles
-    self.add_role(role)
-    puts 'assign_user_role'
-  end
-
-
   def assign_default_role
     self.add_role(:user)
   end

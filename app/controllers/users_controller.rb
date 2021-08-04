@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @roles_array = %w[ mod, user, admin]
+    @roles_array = %w[ admin mod  user  ]
   end
 
   def assign_user_role

@@ -6,37 +6,19 @@ class PostPolicy < ApplicationPolicy
 
   def edit?
     if user
-      user.roles.each do |role|
-        if role.name == "admin"
-          return true
-        else
-          return false
-        end
-      end
+      user.has_role? :admin
     end
   end
 
   def update?
     if user
-      user.roles.each do |role|
-        if role.name == "admin"
-          return true
-        else
-          return false
-        end
-      end
+      user.has_role? :admin
     end
   end
 
   def destroy?
     if user
-      user.roles.each do |role|
-        if role.name == "admin"
-          return true
-        else
-          return false
-        end
-      end
+      user.has_role? :admin
     end
   end
   # class Scope < Scope
