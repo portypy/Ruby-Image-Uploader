@@ -56,6 +56,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rspec'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -82,3 +83,12 @@ gem 'sidekiq'
 
 #https://github.com/redis-store/redis-rails
 gem 'redis-rails'
+
+group :development, :test do
+  gem 'factory_bot_rails'
+end
+
+# https://github.com/philostler/rspec-sidekiq
+group :test do
+  gem 'rspec-sidekiq'
+end

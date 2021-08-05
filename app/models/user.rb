@@ -16,8 +16,8 @@ class User < ApplicationRecord
     self.add_role(:user)
   end
 
-  def is_admin?
-    self.has_role? :admin
-  end
+  # def is_admin?
+  #   self.has_role? :admin
+  # end
 
 end
