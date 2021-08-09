@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
+
+  # before_action :authorize_admin
+
   def index
     @users = User.all
+    authorize @users
     HardWorker.new.perform(current_user.id)
   end
 
   def show
     @user = User.find(params[:id])
     @roles_array = %w[ admin mod  user  ]
+    authorize @user
   end
 
   def assign_user_role

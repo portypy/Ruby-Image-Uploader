@@ -6,7 +6,7 @@ class PostPolicy < ApplicationPolicy
 
   def edit?
     if user
-      user.has_role? :admin
+      (user.has_role? :mod) || (user.has_role? :admin)
     end
   end
 

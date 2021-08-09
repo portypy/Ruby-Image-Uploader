@@ -65,6 +65,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Carrierwave
 gem 'carrierwave', '~> 2.0'
 
+#https://github.com/minimagick/minimagick
+gem "mini_magick"
+
 #Devise
 gem 'devise'
 
