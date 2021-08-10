@@ -37,5 +37,7 @@
   </div>
   </body>
 
-  <%= console %>
+  <% if Rails.env.development? || Rails.env.staging? %>
+  <% console %>
+<% end %>
 </html>
