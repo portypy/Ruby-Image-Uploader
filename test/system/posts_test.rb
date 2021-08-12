@@ -1,7 +1,10 @@
 require "application_system_test_case"
 
 class PostsTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    login_admin
     @post = posts(:one)
   end
 
@@ -14,7 +17,7 @@ class PostsTest < ApplicationSystemTestCase
     visit posts_url
     click_on "New Post"
 
-    fill_in "Image", with: @post.image
+    attach_file('Image','public/uploads/post/image/4/Screenshot_from_2021-08-09_09-49-33.png')
     fill_in "Title", with: @post.title
     click_on "Create Post"
 
@@ -24,9 +27,10 @@ class PostsTest < ApplicationSystemTestCase
 
   test "updating a Post" do
     visit posts_url
-    click_on "Edit", match: :first
+    click_on "Edit", match: :prefer_exact
 
-    fill_in "Image", with: @post.image
+    attach_file('Image','public/uploads/post/image/4/Screenshot_from_2021-08-09_09-49-33.png')
+
     fill_in "Title", with: @post.title
     click_on "Update Post"
 

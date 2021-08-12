@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    login_admin
     @post = posts(:one)
   end
 
