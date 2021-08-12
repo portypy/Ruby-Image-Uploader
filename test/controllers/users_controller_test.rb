@@ -6,7 +6,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup
     login_admin
-    end
+  end
 
   test 'should assign mod role' do
     post assign_user_role_path(:id => @user.id, :role => 'mod')

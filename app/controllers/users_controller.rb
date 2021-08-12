@@ -8,16 +8,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @roles_array = %w[ admin mod  user  ]
     authorize @user
+    @roles_array = %w[ admin mod  user  ]
   end
 
   def assign_user_role
     @user = User.find(params[:id])
+    authorize @user
     @user.roles.delete_all if @user.roles
     @user.add_role(params[:role])
     redirect_to @user, notice: "#{@user.email} was given the role of #{@user.roles.first.name if @user.roles.any?}"
-    authorize @user
   end
 
 

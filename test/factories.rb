@@ -1,5 +1,4 @@
 require 'faker'
-require 'devise/test/integration_helpers'
 
 FactoryBot.define do
   factory :user do
