@@ -3,6 +3,7 @@ class UserPolicy < ApplicationPolicy
   def index?
     if (@user)
       @user.has_role? :admin
+      # true
     end
   end
 
@@ -15,7 +16,6 @@ class UserPolicy < ApplicationPolicy
   def assign_user_role?
     if (@user)
     @user.has_role? :admin
-    true
     end
   end
 

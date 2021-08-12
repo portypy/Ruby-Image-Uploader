@@ -5,11 +5,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
 
   def setup
-    @user = User.new( email: 'example@example.com', password: '111111')
-    @user.save
-    @user.add_role(:admin)
-    sign_in @user
-  end
+    login_admin
+    end
 
   test 'should assign mod role' do
     post assign_user_role_path(:id => @user.id, :role => 'mod')

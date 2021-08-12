@@ -17,8 +17,14 @@ end
 
 
 class ActiveSupport::TestCase
+
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  #
+  def login_admin
+    @user = FactoryBot.create(:admin)
+    sign_in @user
+  end
 end

@@ -41,7 +41,7 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  config.factory_bot.definition_file_paths = ["custom/factories"]
+  # config.factory_bot.definition_file_paths = ["test/factories"]
 
 
   # Raises error for missing translations

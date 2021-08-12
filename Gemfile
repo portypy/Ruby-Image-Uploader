@@ -70,7 +70,6 @@ gem "mini_magick"
 
 #Devise
 gem 'devise'
-
 #Pundit https://github.com/varvet/pundit
 gem 'pundit'
 
@@ -87,9 +86,9 @@ gem 'sidekiq'
 #https://github.com/redis-store/redis-rails
 gem 'redis-rails'
 
-group :development, :test do
-  gem 'factory_bot_rails'
-end
+gem 'faker'
+
+gem 'factory_bot_rails'
 
 # https://github.com/philostler/rspec-sidekiq
 group :test do
