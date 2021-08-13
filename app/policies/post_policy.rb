@@ -16,6 +16,12 @@ class PostPolicy < ApplicationPolicy
     end
   end
 
+  def create?
+    if user
+      user.has_role? :admin
+    end
+  end
+
   def destroy?
     if user
       user.has_role? :admin

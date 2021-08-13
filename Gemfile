@@ -94,3 +94,7 @@ gem 'factory_bot_rails'
 group :test do
   gem 'rspec-sidekiq'
 end
+
+gem 'searchkick'
+
+gem 'jquery-ui-rails'

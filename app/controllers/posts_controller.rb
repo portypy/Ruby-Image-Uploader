@@ -3,13 +3,13 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
-    authorize @posts
+    query = params[:q].presence || '*'
+    @posts = Post.search(query)
   end
 
   # GET /posts/1 or /posts/1.json
   def show
-
+    @comments = Post.find(params[:id]).comments
   end
 
   # GET /posts/new
@@ -24,7 +24,9 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
+
     @post = Post.new(post_params)
+    authorize @post
 
     respond_to do |format|
       if @post.save
@@ -59,6 +61,10 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def autocomplete
+    render json: Post.search(params[:term], fields: [{title: :word_start}], limit: 10).map(&:title)
   end
 
   private

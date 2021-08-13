@@ -2,10 +2,15 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: "posts#index"
   resources :posts do
+    collection do
+      get :autocomplete
+    end
     resources :comments
   end
+
+  root to: "posts#index"
+
 
   get 'users/index'
   resources :users
