@@ -8,9 +8,12 @@
   <strong>Image:</strong>
   <%= image_tag @post.image_url if @post.image? %>
 </p>
-
-<h3><%= @comments.size %>  Comments:</h3>
-<% @post.comments.each do |comment| %>
+<% if @comments.size == 0 %>
+   No comments
+  <% else %>
+<%= @comments.size %>  Comments:
+  <% end %>
+<% @comments.each do |comment| %>
   <p>
     <b>Commenter:</b>
     <%= comment.commenter %>

@@ -1,6 +1,14 @@
 require 'faker'
 
 FactoryBot.define do
+  factory :subcategory do
+    
+  end
+
+  factory :category do
+    
+  end
+
   factory :user do
       email { Faker::Internet.email }
       password { "MyString" }
