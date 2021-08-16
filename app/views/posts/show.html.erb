@@ -5,6 +5,11 @@
 </p>
 
 <p>
+  <strong>Category:</strong>
+     <%= link_to @post.category.name, @post.category %>
+</p>
+
+<p>
   <strong>Image:</strong>
   <%= image_tag @post.image_url if @post.image? %>
 </p>

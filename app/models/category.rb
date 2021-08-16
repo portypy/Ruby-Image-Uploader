@@ -1,8 +1,8 @@
 class Category < ApplicationRecord
 
-  has_and_belongs_to_many :posts
+  has_many :post
   has_many :subcategories, as: :categorizable
-
+  searchkick
   # has_many :subcategories, class_name: 'Category', foreign_key: 'parent_id', dependent: :destroy
   # belongs_to :parent, class_name: 'Category', foreign_key: 'parent_id', optional: true
 

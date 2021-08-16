@@ -1,0 +1,13 @@
+<p>
+  <strong> Name:</strong>
+  <%= @category.name %>
+
+  <br/>
+
+  <% @posts.each do |post| %>
+  <% if post.category.id == @category.id %>
+    <%= link_to post.title, post %> <br/>
+  <% end %>
+  <% end %>
+
+</p>

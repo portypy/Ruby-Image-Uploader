@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :categories %>
+  <%= form.collection_select(:category_id, Category.all, :id, :name)%>
+  </div>
+
+  <div class="field">
     <%= form.label :image %>
     <%= form.file_field :image %>
   </div>
