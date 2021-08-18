@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  resources :subcategories
   devise_for :users
 
   root to: "posts#index"
@@ -12,18 +12,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :users
+  resources :users, :subcategories, :categories
 
-  get 'users/index'
-  post 'users/:id/assign_user_role', to: 'users#assign_user_role', as: 'assign_user_role'
 
-  resources :categories
-
-  get 'subcategory/index'
-  get 'subcategory/new'
-  get 'categories/index'
-  get 'categories/new'
+    post 'users/:id/assign_user_role', to: 'users#assign_user_role', as: 'assign_user_role'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # root to: "main#index"
 end

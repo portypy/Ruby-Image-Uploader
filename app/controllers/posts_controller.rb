@@ -25,9 +25,6 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
 
-
-    # @category = Category.find_by_id(9)
-
     @post = Post.new(post_params)
     authorize @post
 
@@ -75,7 +72,6 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])
     end
-
 
     # Only allow a list of trusted parameters through.
     def post_params

@@ -13,8 +13,14 @@
 </div>
 
 <%= link_to 'Categories', categories_path %>
-<%#= link_to 'Subcategories', subcategory_index_path %>
 
+<br/>
+<hr/>
+<br/>
+
+<br/>
+<hr/>
+<br/>
 
 <table class="table table-dark">
   <thead>
@@ -33,12 +39,12 @@
         <td><%= image_tag post.image_url :thumb if post.image? %> </td>
         <td> <%= post.category.name %> </td>
         <td> <% if post.comments.size == 0 %>
-           No comments
-        <% else %>
-           comments: <%= post.comments.size %>
-        <% end %></td>
+             No comments
+          <% else %>
+             comments: <%= post.comments.size %>
+          <% end %></td>
         <td><%= link_to 'Show', post %></td>
-          <td><%= link_to 'Edit', edit_post_path(post) if policy(post).edit? %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) if policy(post).edit? %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if policy(post).destroy?%></td>
       </tr>
     <% end %>

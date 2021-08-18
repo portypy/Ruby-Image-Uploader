@@ -69,5 +69,4 @@ Rails.application.configure do
 
 
   # config.factory_bot.definition_file_paths = ["test/factories"]
-
 end

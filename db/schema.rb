@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_16_134748) do
+ActiveRecord::Schema.define(version: 2021_08_17_123246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 2021_08_16_134748) do
   create_table "categories_posts", id: false, force: :cascade do |t|
     t.bigint "post_id", null: false
     t.bigint "category_id", null: false
+  end
+
+  create_table "categories_subcategories", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "subcategory_id", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -45,6 +50,11 @@ ActiveRecord::Schema.define(version: 2021_08_16_134748) do
     t.index ["category_id"], name: "index_posts_on_category_id"
   end
 
+  create_table "posts_subcategories", id: false, force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "subcategory_id", null: false
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -56,9 +66,9 @@ ActiveRecord::Schema.define(version: 2021_08_16_134748) do
   end
 
   create_table "subcategories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|

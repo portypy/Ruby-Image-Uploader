@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @posts = Post.all
+    @posts = @category.posts
   end
 
   def create

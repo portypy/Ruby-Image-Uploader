@@ -1,13 +1,24 @@
 <p>
   <strong> Name:</strong>
-  <%= @category.name %>
+  <%= @category.name %> <br/>
 
-  <br/>
+<!--  <div>-->
+    <%#= link_to 'Create Subcategory', new_subcategory_path %>
+<!--  </div>-->
 
+  <div>
+    <h5>Posts in this category:</h5>
   <% @posts.each do |post| %>
-  <% if post.category.id == @category.id %>
+    <%# for post in @posts.reverse %>
     <%= link_to post.title, post %> <br/>
   <% end %>
-  <% end %>
+  </div>
+
+  <div>
+    <h5>Subcategories:</h5>
+    <% @category.subcategories.each do |sub| %>
+    <%= link_to sub.name, sub %> <br/>
+    <% end %>
+  </div>
 
 </p>

@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subcategory
+  <%= @subcategory.name %> </strong> belongs to <%= @subcategory.categories.size %> categories: <br/>
+
+  <% @subcategory.categories.each do |category| %>
+    <%= link_to category.name, category %><br/>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_subcategory_path(@subcategory) %> |
+<%= link_to 'Back', subcategories_path %>

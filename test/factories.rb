@@ -2,8 +2,12 @@ require 'faker'
 
 FactoryBot.define do
   factory :subcategory do
-    
+    name { "MyString" }
   end
+
+  # factory :subcategory do
+  #
+  # end
 
   factory :category do
     
