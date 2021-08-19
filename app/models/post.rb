@@ -1,5 +1,8 @@
 class Post < ApplicationRecord
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   mount_uploader :image, AvatarUploader
 
   has_many :comments, dependent: :delete_all
