@@ -14,14 +14,12 @@ class SubcategoriesController < ApplicationController
   # GET /subcategories/new
   def new
     @subcategory = Subcategory.new
-    # @categories = Category.all
-    # @posts = Post.pluck(:id, :title)
   end
 
   # GET /subcategories/1/edit
   def edit
-    @categories = Category.pluck(:id, :name)
-    @posts = Post.pluck(:id, :title)
+    # @categories = Category.pluck(:id, :name)
+    # @posts = Post.pluck(:id, :title)
   end
 
   # POST /subcategories or /subcategories.json

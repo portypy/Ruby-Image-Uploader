@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :delete_all
   has_and_belongs_to_many :subcategories
   belongs_to :category
+  belongs_to :user
   searchkick word_start: [:title]
 
   def search_data

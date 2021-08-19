@@ -6,8 +6,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :role
+  has_many :posts
 
-  scope :admins, -> { joins(:users_roles).where('role_id = ?', '5') }
+
+  scope :admins, -> { joins(:users_roles).where('role_id = ?', '2') }
 
   #Callbacks
   after_create :assign_default_role

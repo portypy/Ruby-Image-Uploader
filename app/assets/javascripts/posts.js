@@ -1,0 +1,2 @@
+
+    $(".selectize").selectize();

@@ -18,7 +18,7 @@
 
   <tbody>
     <% @subcategories.each do |subcategory| %>
-      <tr>
+      <tr id="table">
         <td><%= subcategory.name %></td>
         <td><%= link_to 'Show', subcategory %></td>
         <td><%= link_to 'Edit', edit_subcategory_path(subcategory) %></td>
@@ -28,5 +28,6 @@
   </tbody>
 </table>
 
-<br>
+
+
 

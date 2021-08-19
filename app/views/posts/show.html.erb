@@ -8,7 +8,12 @@
   <strong>Category:</strong>
      <%= link_to @post.category.name, @post.category %>
 </p>
-
+<p>
+<strong>Subcategories:</strong>
+  <% @post.subcategories.each do |sub| %>
+    <%= link_to sub.name, sub %>
+  <% end %>
+</p>
 <p>
   <strong>Image:</strong>
   <%= image_tag @post.image_url if @post.image? %>

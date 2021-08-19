@@ -14,18 +14,14 @@
 
 <%= link_to 'Categories', categories_path %>
 
-<br/>
-<hr/>
-<br/>
 
-<br/>
-<hr/>
-<br/>
+<%= link_to 'New Post', new_post_path,class: "btn btn-primary", id: "admin-view" if policy(@posts).create? %>
 
 <table class="table table-dark">
   <thead>
     <tr>
       <th>Title</th>
+      <th>Creator</th>
       <th>Image</th>
       <th>Category</th>
       <th colspan="3"></th>
@@ -36,6 +32,8 @@
     <% @posts.each do |post| %>
       <tr id="table">
         <td><%= post.title %></td>
+        <% index_of_at = post.user.email.index('@') %>
+        <td><%= post.user.email[0,index_of_at] %></td>
         <td><%= image_tag post.image_url :thumb if post.image? %> </td>
         <td> <%= post.category.name %> </td>
         <td> <% if post.comments.size == 0 %>
@@ -53,4 +51,3 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path,class: "btn btn-primary", id: "admin-view" %>
