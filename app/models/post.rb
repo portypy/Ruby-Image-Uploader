@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
 
+  validates :title, presence: true , uniqueness: true
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 
@@ -9,6 +11,7 @@ class Post < ApplicationRecord
   has_and_belongs_to_many :subcategories
   belongs_to :category
   belongs_to :user
+
   searchkick word_start: [:title]
 
   def search_data

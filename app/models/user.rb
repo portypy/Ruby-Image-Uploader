@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  validates :email, presence: true , uniqueness: true
+
+
   extend FriendlyId
   friendly_id :email, use: :slugged
 

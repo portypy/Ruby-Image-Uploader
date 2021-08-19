@@ -12,7 +12,6 @@
   <% end %>
 </div>
 
-<%= link_to 'Categories', categories_path %>
 
 
 <%= link_to 'New Post', new_post_path,class: "btn btn-primary", id: "admin-view" if policy(@posts).create? %>
