@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
-
-  resources :subcategories, :categories, :users
+  resources :users
+  resources :subcategories, :categories
 
   post 'users/:id/assign_user_role', to: 'users#assign_user_role', as: 'assign_user_role'
 
