@@ -12,10 +12,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :users, :subcategories, :categories
+  resources :subcategories, :categories, :users
 
-
-    post 'users/:id/assign_user_role', to: 'users#assign_user_role', as: 'assign_user_role'
+  post 'users/:id/assign_user_role', to: 'users#assign_user_role', as: 'assign_user_role'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

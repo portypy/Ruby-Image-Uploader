@@ -24,5 +24,14 @@ class User < ApplicationRecord
     self.add_role(:user)
   end
 
+  def self.to_csv
+    attributes = %w{ id email created_at updated_at }
+    CSV.generate(headers: true ) do |csv|
+      csv << attributes
+      all.each do |user|
+        csv << user.attributes.values_at(*attributes)
+      end
+    end
+  end
 
 end
