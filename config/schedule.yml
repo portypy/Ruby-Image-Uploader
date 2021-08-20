@@ -1,0 +1,3 @@
+:schedule:
+    class: UsersListCronWorker
+    cron: '0 * * * * *'

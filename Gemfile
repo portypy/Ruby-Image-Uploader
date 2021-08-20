@@ -102,3 +102,5 @@ gem 'jquery-ui-rails'
 gem 'selectize-rails'
 
 gem 'friendly_id', '~> 5.4.0'
+
+gem "sidekiq-scheduler"

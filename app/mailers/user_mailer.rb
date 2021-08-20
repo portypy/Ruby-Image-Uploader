@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
-  default from: "notitications@example.com"
+  default from: "notifications@example.com"
 
-  def admin_panel_email(user_id, current_user_id)
-    @user = User.find(user_id)
-    @current_user = User.find(current_user_id)
-    mail(to: @user.email, subject: 'Someone viewed admin panel')
+  def admin_panel_email(current_user_id, temp_file)
+    @user = User.find(current_user_id)
+    attachments['Users list'] = File.read(temp_file)
+    mail(to: @user.email, subject: "Image Uploader's Users List")
   end
 end

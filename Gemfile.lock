@@ -95,6 +95,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    e2mmap (0.1.0)
     elasticsearch (7.14.0)
       elasticsearch-api (= 7.14.0)
       elasticsearch-transport (= 7.14.0)
@@ -104,6 +105,8 @@ GEM
       faraday (~> 1)
       multi_json
     erubi (1.10.0)
+    et-orbi (1.2.4)
+      tzinfo
     execjs (2.8.1)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
@@ -134,6 +137,9 @@ GEM
     ffi (1.15.3)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
+    fugit (1.5.1)
+      et-orbi (~> 1.1, >= 1.1.8)
+      raabro (~> 1.4)
     globalid (0.5.2)
       activesupport (>= 5.0)
     hashie (4.1.0)
@@ -179,6 +185,7 @@ GEM
     puma (3.12.6)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
+    raabro (1.4.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -254,6 +261,8 @@ GEM
     ruby2_keywords (0.0.5)
     ruby_dep (1.5.0)
     rubyzip (2.3.2)
+    rufus-scheduler (3.8.0)
+      fugit (~> 1.1, >= 1.1.6)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -279,6 +288,13 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
+    sidekiq-scheduler (3.1.0)
+      e2mmap
+      redis (>= 3, < 5)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 3)
+      thwait
+      tilt (>= 1.4.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -293,6 +309,8 @@ GEM
     ssrf_filter (1.0.7)
     thor (1.1.0)
     thread_safe (0.3.6)
+    thwait (0.2.0)
+      e2mmap
     tilt (2.0.10)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
@@ -344,6 +362,7 @@ DEPENDENCIES
   selectize-rails
   selenium-webdriver
   sidekiq
+  sidekiq-scheduler
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data

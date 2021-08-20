@@ -1,7 +1,7 @@
-class HardWorker
+class UsersListCronWorker
   include Sidekiq::Worker
 
-  def perform(current_user_id)
+  def perform
     temp_file = Tempfile.new('users_list.csv')
     attributes = %w{ id email created_at updated_at }
     CSV.open( temp_file, 'w')  do |csv|
@@ -10,7 +10,7 @@ class HardWorker
         csv << user.attributes.values_at(*attributes)
       end
     end
-    UserMailer.admin_panel_email(current_user_id, temp_file).deliver_now
+    UserMailer.admin_panel_email('1', temp_file).deliver_now
     temp_file.close
     temp_file.delete
   end
