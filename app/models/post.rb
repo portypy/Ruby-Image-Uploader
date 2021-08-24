@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
 
-  validates :title, presence: true , uniqueness: true
+  # validates :title, presence: true , uniqueness: true
 
   extend FriendlyId
   friendly_id :title, use: :slugged

@@ -19,7 +19,7 @@ class PostPolicy < ApplicationPolicy
 
   def update?
     if user
-      (user.has_role? :admin) || (user.id == @post.user_id)
+      (user.has_role? :mod) || (user.has_role? :admin) || (user.id == @post.user_id)
     end
   end
 

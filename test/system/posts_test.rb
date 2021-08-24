@@ -5,7 +5,8 @@ class PostsTest < ApplicationSystemTestCase
 
   setup do
     login_admin
-    @post = posts(:one)
+    Post.reindex
+    @post = FactoryBot.create(:post)
   end
 
   test "visiting the index" do
@@ -17,7 +18,7 @@ class PostsTest < ApplicationSystemTestCase
     visit posts_url
     click_on "New Post"
 
-    attach_file('Image','public/uploads/post/image/4/Screenshot_from_2021-08-09_09-49-33.png')
+    attach_file('Image','test/fixtures/files/Screenshot_2021-05-21_at_15.59.50.png')
     fill_in "Title", with: @post.title
     click_on "Create Post"
 
@@ -29,9 +30,10 @@ class PostsTest < ApplicationSystemTestCase
     visit posts_url
     click_on "Edit", match: :prefer_exact
 
-    attach_file('Image','public/uploads/post/image/4/Screenshot_from_2021-08-09_09-49-33.png')
+    attach_file('Image','test/fixtures/files/Screenshot_2021-05-21_at_15.59.50.png')
 
-    fill_in "Title", with: @post.title
+    # fill_in "Title", with: @post.title
+    # fill_in "Categories", with: @post.category
     click_on "Update Post"
 
     assert_text "Post was successfully updated"

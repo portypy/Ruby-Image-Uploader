@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class SubcategoriesTest < ApplicationSystemTestCase
   setup do
-    @subcategory = subcategories(:one)
+    @subcategory = FactoryBot.create(:subcategory)
   end
 
   test "visiting the index" do

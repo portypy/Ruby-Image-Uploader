@@ -31,9 +31,15 @@
     <% @posts.each do |post| %>
       <tr id="table">
         <td><%= post.title %></td>
-        <td><%= post.user.email %></td>
+        <td>
+          <% if post.user %>
+            <%= post.user.email %>
+          <% end %>  </td>
         <td><%= image_tag post.image_url :thumb if post.image? %> </td>
-        <td> <%= post.category.name %> </td>
+        <td>
+          <% if post.category %>
+            <%= post.category.name %>
+          <% end %>  </td>
         <td> <% if post.comments.size == 0 %>
              No comments
           <% else %>

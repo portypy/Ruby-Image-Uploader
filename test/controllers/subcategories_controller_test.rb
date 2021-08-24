@@ -2,7 +2,9 @@ require 'test_helper'
 
 class SubcategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @subcategory = subcategories(:one)
+    @subcategory = FactoryBot.create(:subcategory)
+    # Subcategory.reindex
+
   end
 
   test "should get index" do

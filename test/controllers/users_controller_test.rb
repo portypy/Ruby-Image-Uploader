@@ -14,26 +14,26 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should GET #index as an admin" do
-    get users_index_url
+    get users_url
     assert_response :success
   end
 
   test 'should not GET #index if not logged in' do
     sign_out @user
     assert_raises(Pundit::NotAuthorizedError) {
-      get users_index_url}
+      get users_url}
   end
 
   test 'should not GET #index as a user' do
     post assign_user_role_path(:id => @user.id, :role => 'user')
     assert_raises(Pundit::NotAuthorizedError) {
-      get users_index_url}
+      get users_url}
   end
 
   test 'should not GET #index as a mod' do
     post assign_user_role_path(:id => @user.id, :role => 'mod')
     assert_raises(Pundit::NotAuthorizedError) {
-      get users_index_url}
+      get users_url}
   end
 
   test 'should GET #show as an admin' do

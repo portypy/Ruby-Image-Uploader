@@ -5,11 +5,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     login_admin
-    @post = posts(:one)
+
+    @post = FactoryBot.create(:post)
+    Post.reindex
   end
 
   test "should get index" do
-    get posts_url
+    get posts_path
     assert_response :success
   end
 
