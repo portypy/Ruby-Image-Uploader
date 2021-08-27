@@ -6,7 +6,11 @@
 
 <p>
   <strong>Category:</strong>
-     <%= link_to @post.category.name, @post.category %>
+  <% if @post.category %>
+    <%= link_to @post.category.name, @post.category %>
+  <% else %>
+  <%= " This post doesn't belong to any category. "%>
+  <% end %>
 </p>
 <p>
 <strong>Subcategories:</strong>
@@ -36,11 +40,11 @@
 
 <h3> Add a comment:</h3>
 <%= form_for([@post, @post.comments.build]) do |f| %>
-  <div class="field">
+  <div class="field" >
     <%= f.label :commenter %><br/>
     <%= f.text_field :commenter %>
   </div>
-  <div class="field">
+  <div class="field" >
     <%= f.label :body %><br/>
     <%= f.text_area :body %>
   </div>

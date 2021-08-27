@@ -23,6 +23,12 @@ class PostPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    if user
+      true
+    end
+  end
+
   def create?
     if user
       true

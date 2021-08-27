@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    authorize @post
   end
 
   # GET /posts/1/edit
@@ -25,7 +26,8 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
 
-    @post = Post.new(post_params.merge(user_id: current_user.id))
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
     authorize @post
 
     respond_to do |format|
@@ -71,6 +73,9 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.friendly.find(params[:id])
+      if action_name == 'show' && request.path != post_path(@post)
+        redirect_to new_user_session
+      end
     end
 
     # Only allow a list of trusted parameters through.

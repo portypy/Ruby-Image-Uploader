@@ -3,7 +3,7 @@ require 'faker'
 FactoryBot.define do
   factory :subcategory do
     name { Faker::Name.unique.name }
-    # categories { [Category.create(:name => 'naaaaame')] }
+    # categories { [Category.create(:name => 'name')] }
     categories { [FactoryBot.build(:category)] }
   end
 
@@ -23,11 +23,8 @@ FactoryBot.define do
   end
 
   factory :post do
-    association :category
-    association :user
     title {Faker::Name.unique.name}
-    category_id { Faker::Number.between(from: 1, to: 10) }
-    user_id { Faker::Number.between(from: 1, to: 10) }
-
+     association :category, factory: :category
+     association :user, factory: :user
   end
 end

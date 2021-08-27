@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[ show edit update destroy ]
 
   def index
     @users = User.all
@@ -11,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.friendly.find(params[:id])
     authorize @user
     @roles_array = %w[ admin mod  user  ]
   end
@@ -27,5 +27,15 @@ class UsersController < ApplicationController
   def email_users_list
     HardWorker.new.perform(current_user.id)
     redirect_to users_path
+  end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.friendly.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit( :id, :name, :category_id, subcategory_ids: [])
   end
 end

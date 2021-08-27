@@ -5,7 +5,7 @@ class Category < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
-  has_many :posts
+  has_many :posts , dependent: :nullify
   has_and_belongs_to_many :subcategories
 
   def slug_candidates

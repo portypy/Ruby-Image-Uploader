@@ -7,7 +7,27 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'devise'
+require 'capybara'
 require 'support/controller_macros'
+
+
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+Capybara.register_driver :headless_chrome do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: { args: %w(headless disable-gpu no-sandbox),
+                     w3c: false
+    }
+  )
+
+  Capybara::Selenium::Driver.new app,
+                                 browser: :chrome,
+                                 desired_capabilities: capabilities
+end
+
+Capybara.javascript_driver = :headless_chrome
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -37,15 +57,14 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
   config.include Devise::Test::IntegrationHelpers, :type => :request
+  config.include Devise::Test::IntegrationHelpers, :type => :controller
   config.extend ControllerMacros, :type => :request
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
