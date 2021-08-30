@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
 
   validates :name, presence: true , uniqueness: true
-
+  searchkick
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 

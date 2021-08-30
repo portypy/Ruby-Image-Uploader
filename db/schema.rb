@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_19_113757) do
+ActiveRecord::Schema.define(version: 2021_08_30_141431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,6 @@ ActiveRecord::Schema.define(version: 2021_08_19_113757) do
     t.string "name"
     t.string "slug"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
-  end
-
-  create_table "categories_posts", id: false, force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.bigint "category_id", null: false
   end
 
   create_table "categories_subcategories", id: false, force: :cascade do |t|
@@ -83,11 +78,10 @@ ActiveRecord::Schema.define(version: 2021_08_19_113757) do
   end
 
   create_table "subcategories", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.string "slug"
-    t.index ["slug"], name: "index_subcategories_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|

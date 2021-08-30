@@ -4,7 +4,6 @@ class SubcategoriesController < ApplicationController
   # GET /subcategories or /subcategories.json
   def index
     @subcategories = Subcategory.all
-
   end
 
   # GET /subcategories/1 or /subcategories/1.json
@@ -18,8 +17,6 @@ class SubcategoriesController < ApplicationController
 
   # GET /subcategories/1/edit
   def edit
-    # @categories = Category.pluck(:id, :name)
-    # @posts = Post.pluck(:id, :title)
   end
 
   # POST /subcategories or /subcategories.json

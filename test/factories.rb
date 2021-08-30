@@ -4,7 +4,8 @@ FactoryBot.define do
   factory :subcategory do
     name { Faker::Name.unique.name }
     # categories { [Category.create(:name => 'name')] }
-    categories { [FactoryBot.build(:category)] }
+    category_ids { [1]
+    }
   end
 
   factory :category do
