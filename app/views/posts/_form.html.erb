@@ -17,9 +17,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :category_id, 'Categories' %>
-    <%= form.collection_select(:category_id, Category.all, :id, :name , {}, {class: "selectize"})%>
-    <%#= form.select :category_id, Category.all.pluck(:name, :id), {}, {class: "selectize"} %>
+
+    <% benchmark 'Category all or pluck' , silence: true do%>
+
+        <%= form.label :category_id, 'Categories' %>
+        <%#= form.collection_select(:category_id, Category.all, :id, :name , {}, {class: "selectize"})%>
+        <%= form.select :category_id, Category.all.pluck(:name, :id), {}, {class: "selectize"} %>
+
+    <% end %>
+
   </div>
 
   <div class="field">

@@ -112,3 +112,10 @@ gem "sidekiq-scheduler"
 
 gem 'rails-controller-testing'
 
+gem 'headless'
+
+gem 'mechanize'
+
+gem 'faraday'
+
+gem 'faraday_middleware'

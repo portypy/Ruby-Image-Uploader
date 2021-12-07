@@ -1,6 +1,20 @@
-$(document).on("page:load ready", function() {
-    $(".selectize").selectize();
-});
+// $(document).on("page:load ready", function() {
+//     $(".selectize").selectize();
+// });
+
+$(document).ready
+    $("#new_subcategory").on("ajax:success", function() {
+        $(".selectize").selectize();}
+    ).on ("ajax:error", function(xhr, status, error) {
+        alert(xhr.responseText);
+    })
+
+                // function (xhr) {
+                //     let err = JSON.parse(xhr.responseText);
+                //     alert(err.message);
+                // }
+
+
 
 // $(document).on("page:load ready", function() {
 //     let selectizeCallback = null;

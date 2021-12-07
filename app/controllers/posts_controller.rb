@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     query = params[:q].presence || '*'
-    @posts = Post.search(query)
+    @posts = Post.all
   end
 
   # GET /posts/1 or /posts/1.json

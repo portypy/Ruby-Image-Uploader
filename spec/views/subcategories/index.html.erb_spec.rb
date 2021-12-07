@@ -9,6 +9,6 @@ RSpec.describe "subcategories/index", type: :view do
   end
 
   it "renders a list of subcategories" do
-    # render categories_path
+    render
   end
 end

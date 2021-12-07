@@ -1,7 +1,9 @@
-
+require 'sidekiq/web'
+require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
 
+  resources :insta_items
   resources :subcategories
   devise_for :users
 
@@ -25,7 +27,7 @@ Rails.application.routes.draw do
     end
   end
   resources :categories
-
+  mount Sidekiq::Web => '/sidekiq'
   post 'users/:id/assign_user_role', to: 'users#assign_user_role', as: 'assign_user_role'
   get'/sign_in', to: redirect("/users/sign_in", status: 301) # dirty
 
