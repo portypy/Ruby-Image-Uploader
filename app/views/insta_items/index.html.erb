@@ -1,15 +1,19 @@
   <p id="notice"><%= notice %></p>
 
-  <ul class="nav nav-tabs" >
-    <li class="nav-item nav-link <%= 'active' if params[:tab].blank? or params[:tab] == "all" %>">
+  <ul class="">
+
+    <button class="<%= 'active' if params[:tab].blank? or params[:tab] == "all" %>">
       <a data-toggle="tab" href="#all" role="tab" ><strong>all</strong> </a>
-    </li>
-    <li class="nav-item nav-link <%= 'active' if params[:tab] == "images"%>">
-      <a data-toggle="tab" href="#images" role="tab"><strong>images</strong> </a>
-    </li>
-    <li class="nav-item nav-link <%= 'active' if params[:tab] == "videos"%>" >
+    </button>
+
+    <button class=" <%= 'active' if params[:tab] == "videos"%>">
       <a data-toggle="tab" href="#videos" role="tab"><strong>videos</strong> </a>
-    </li>
+    </button>
+
+    <button class=" <%= 'active' if params[:tab] == "images"%>">
+      <a data-toggle="tab" href="#images" role="tab"><strong>images</strong> </a>
+    </button>
+
   </ul>
 
 
