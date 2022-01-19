@@ -11,4 +11,6 @@ class InstaItemsController < ApplicationController
     def insta_item_params
       params.require(:insta_item).permit(:media_url, :permalink, :extra_id)
     end
+
+  #test
 end
